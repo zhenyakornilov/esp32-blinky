@@ -3,6 +3,22 @@
 #define BLUE_LED 4
 #define RED_LED 13
 
+enum class ledState : bool
+{
+  Off = LOW,
+  On = HIGH
+};
+
+class Led
+{
+public:
+  constexpr Led(uint8_t pin, uint32_t interval) : mPin(pin), mInterval(interval) {}
+
+private:
+  uint8_t mPin;
+  uint32_t mInterval;
+};
+
 void setup()
 {
   pinMode(BLUE_LED, OUTPUT);
